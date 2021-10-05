@@ -1,5 +1,5 @@
 import React from "react";
-import './collections-overview.styles.scss';
+import styled from "styled-components";
 
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -7,11 +7,11 @@ import CollectionPreview from "../collection-preview/collection-preview.componen
 import { selectCollectionsForPreview } from '../../redux/shop/shop.selectors';
 
 const CollectionsOverview = ({ collections }) => (
-    <div className="collections-overview">
+    <CollectionsOverviewContainer>
     {collections.map(({ id, ...otherCollectionProps }) => (
         <CollectionPreview key={id} {...otherCollectionProps} />
     ))}
-    </div>
+    </CollectionsOverviewContainer>
 );
 
 const mapStateToProps = createStructuredSelector({
@@ -20,3 +20,10 @@ const mapStateToProps = createStructuredSelector({
 
 
 export default connect(mapStateToProps)(CollectionsOverview);
+
+// styles here...
+
+const CollectionsOverviewContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+`;

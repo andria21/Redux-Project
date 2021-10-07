@@ -13,7 +13,6 @@ import { createStructuredSelector } from 'reselect';
 import CheckputPage from './pages/checkout/checkout.component';
 
 class App extends React.Component {
-
   unsubscribeFromAuth = null;
 
   componentDidMount() {
